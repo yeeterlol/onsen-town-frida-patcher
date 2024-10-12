@@ -1,0 +1,21 @@
+{
+  "name": "onsen-town-frida-patcher",
+  "main": "index.ts",
+  "version": "1.0.0",
+  "license": "WTFPL",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": ".\"\\node_modules\"\"\\.bin\"\"\\esbuild\" index.ts --bundle --outfile=index.js",
+    "attach": "frida -U \"\" -l index.js --runtime=v8 --realm=emulated",
+    "spawn": "frida -U -f \"com.pig.toro.aos\" -l index.js --runtime=v8"
+  },
+  "devDependencies": {
+    "@types/frida-gum": "^18.3.1",
+    "frida-compile": "^16.2.2",
+    "frida-il2cpp-bridge": "*"
+  },
+  "dependencies": {
+    "esbuild": "0.24.0"
+  }
+}
